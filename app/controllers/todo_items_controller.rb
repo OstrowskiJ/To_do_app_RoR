@@ -3,8 +3,10 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, except: [:create]
 
   def create
+    if !@todo_items_params.nil?
     @todo_item = @todo_list.todo_items.create(todo_items_params)
     redirect_to @todo_list
+  end
 end
 
 def destroy
